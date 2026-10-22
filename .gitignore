@@ -68,6 +68,7 @@ $RECYCLE.BIN/
 .tmp
 *.log
 *.sql
+!oria_strapi.sql
 *.sqlite
 *.sqlite3
 
