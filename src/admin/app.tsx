@@ -1,37 +1,46 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
+import './custom.css';
 
 export default {
   config: {
-    locales: [
-      // 'ar',
-      // 'fr',
-      // 'cs',
-      // 'de',
-      // 'dk',
-      // 'es',
-      // 'he',
-      // 'id',
-      // 'it',
-      // 'ja',
-      // 'ko',
-      // 'ms',
-      // 'nl',
-      // 'no',
-      // 'pl',
-      // 'pt-BR',
-      // 'pt',
-      // 'ru',
-      // 'sk',
-      // 'sv',
-      // 'th',
-      // 'tr',
-      // 'uk',
-      // 'vi',
-      // 'zh-Hans',
-      // 'zh',
-    ],
+    locales: [],
   },
   bootstrap(app: StrapiApp) {
-    console.log(app);
+    if (typeof document !== 'undefined') {
+      const existing = document.getElementById('strapi-custom-admin-styles');
+      if (!existing) {
+        const style = document.createElement('style');
+        style.id = 'strapi-custom-admin-styles';
+        style.innerHTML = `
+          .ck-editor__editable {
+            min-height: 380px !important;
+            max-height: 800px !important;
+            font-size: 14.5px !important;
+            line-height: 1.65 !important;
+            padding: 16px 20px !important;
+          }
+          textarea[name="short_description"] {
+            min-height: 130px !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+          }
+          textarea[name="seo_description"] {
+            min-height: 110px !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+          }
+          textarea[name="whatsapp_message"] {
+            min-height: 100px !important;
+          }
+          textarea[name="description"] {
+            min-height: 380px !important;
+            font-size: 14.5px !important;
+            line-height: 1.65 !important;
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
   },
 };
+

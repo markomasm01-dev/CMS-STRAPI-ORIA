@@ -695,6 +695,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       ['InStock', 'OutOfStock', 'PreOrder']
     >;
     brand: Schema.Attribute.String;
+    brochure_url: Schema.Attribute.String;
     canonical_url: Schema.Attribute.String;
     category: Schema.Attribute.Relation<
       'manyToOne',
@@ -704,7 +705,13 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -720,7 +727,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::product.product'
     >;
-    main_image: Schema.Attribute.Media<
+    main_image_desktop: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    main_image_mobile: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     mpn: Schema.Attribute.String;
@@ -774,6 +784,18 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    specifications: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -783,6 +805,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    youtube_url: Schema.Attribute.String;
   };
 }
 

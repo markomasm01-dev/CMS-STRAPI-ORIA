@@ -43,7 +43,11 @@
             }
         },
         "description": {
-            "type": "text",
+            "type": "customField",
+            "customField": "plugin::ckeditor5.CKEditor",
+            "options": {
+                "preset": "defaultHtml"
+            },
             "pluginOptions": {
                 "i18n": {
                     "localized": true
@@ -88,7 +92,17 @@
                 }
             }
         },
-        "main_image": {
+        "main_image_desktop": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "main_image_mobile": {
             "type": "media",
             "multiple": false,
             "allowedTypes": [
@@ -155,6 +169,24 @@
         },
         "seo_keywords": {
             "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "brochure_url": {
+            "type": "string"
+        },
+        "youtube_url": {
+            "type": "string"
+        },
+        "specifications": {
+            "type": "customField",
+            "customField": "plugin::ckeditor5.CKEditor",
+            "options": {
+                "preset": "defaultHtml"
+            },
             "pluginOptions": {
                 "i18n": {
                     "localized": true
