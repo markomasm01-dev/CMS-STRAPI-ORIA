@@ -112,6 +112,16 @@
         "audios"
       ]
     },
+    "card_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "gallery_images": {
       "type": "media",
       "multiple": true,

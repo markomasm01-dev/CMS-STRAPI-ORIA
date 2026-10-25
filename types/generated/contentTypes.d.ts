@@ -618,6 +618,7 @@ export interface ApiProductCategoryProductCategory
     };
   };
   attributes: {
+    card_image: Schema.Attribute.Media<'images'>;
     content: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -697,6 +698,9 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     brand: Schema.Attribute.String;
     brochure_url: Schema.Attribute.String;
     canonical_url: Schema.Attribute.String;
+    card_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     category: Schema.Attribute.Relation<
       'manyToOne',
       'api::product-category.product-category'

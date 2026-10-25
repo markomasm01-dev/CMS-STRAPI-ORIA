@@ -41,6 +41,13 @@
         "images"
       ]
     },
+    "card_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "content": {
       "type": "blocks",
       "pluginOptions": {
