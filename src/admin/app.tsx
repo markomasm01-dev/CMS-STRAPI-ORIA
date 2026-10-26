@@ -1,11 +1,26 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
 import './custom.css';
 
+// Enforce Light Mode as default
+if (typeof window !== 'undefined' && window.localStorage) {
+  const currentTheme = window.localStorage.getItem('STRAPI_THEME');
+  if (!currentTheme || currentTheme === 'system' || currentTheme === 'dark') {
+    window.localStorage.setItem('STRAPI_THEME', 'light');
+  }
+  document.documentElement.setAttribute('data-theme', 'light');
+}
+
 export default {
   config: {
     locales: [],
   },
   bootstrap(app: StrapiApp) {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const currentTheme = window.localStorage.getItem('STRAPI_THEME');
+      if (!currentTheme || currentTheme === 'system' || currentTheme === 'dark') {
+        window.localStorage.setItem('STRAPI_THEME', 'light');
+      }
+    }
     if (typeof document !== 'undefined') {
       const existing = document.getElementById('strapi-custom-admin-styles');
       if (!existing) {

@@ -1,10 +1,3 @@
-if (!process.env.STRAPI_ADMIN_LLM_TRANSLATOR_LLM_MODEL) {
-  process.env.STRAPI_ADMIN_LLM_TRANSLATOR_LLM_MODEL = 'gemini-2.5-flash';
-}
-if (!process.env.STRAPI_ADMIN_LLM_TRANSLATOR_LLM_BASE_URL) {
-  process.env.STRAPI_ADMIN_LLM_TRANSLATOR_LLM_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/openai/';
-}
-
 export default () => {
   return {
     upload: {
@@ -59,9 +52,6 @@ export default () => {
           },
         },
       },
-    },
-    'strapi-llm-translator': {
-      enabled: true,
     },
   };
 };
