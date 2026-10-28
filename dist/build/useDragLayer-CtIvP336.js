@@ -1,0 +1,1 @@
+import{ip as s,i3 as c,ha as a}from"./strapi-C794oPhK.js";function g(o){const e=s().getMonitor(),[t,r]=c(e,o);return a.useEffect(()=>e.subscribeToOffsetChange(r)),a.useEffect(()=>e.subscribeToStateChange(r)),t}export{g as u};
